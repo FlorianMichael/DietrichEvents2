@@ -93,4 +93,5 @@ The Benchmark shows the average time it takes to call an event 100.000 times. It
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (EventManager)              | avgt | 4   | 5787144,894  | 508915,190 | ns/op |
 | [Cydhra](https://github.com/Cydhra/EventSystem/tree/master) EventSystem       | avgt | 4   | 7245875.479  | 153210,639 | ns/op |
 | [Guava](https://github.com/google/guava)                                      | avgt | 4   | 11210296,024 | 306451,725 | ns/op |
+
 This table is not meant to put others down, but simply to support the main message of this event system.
