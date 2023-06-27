@@ -1,5 +1,5 @@
 # DietrichEvents2
-One of the fastest Event libraries for Java in the world
+One of the fastest Java event systems in the world, which still has a lot of features
 
 ## Contact
 If you encounter any issues, please report them on the
@@ -71,7 +71,7 @@ public class Test implements ExampleListener {
 ### Calling an Event
 ````java
 // There is also a post() method which uses the error handler (try catch)
-DietrichEvents2.global().postInternal(new ExampleEvent("Hello World!"));
+DietrichEvents2.global().postInternal(ExampleEvent.ID, new ExampleEvent("Hello World!"));
 ````
 
 ## JMH Benchmark
