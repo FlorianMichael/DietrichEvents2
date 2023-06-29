@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.FlorianMichael:DietrichEvents2:1.0.0"
+    implementation "com.github.FlorianMichael:DietrichEvents2:1.0.1"
 }
 ```
 
