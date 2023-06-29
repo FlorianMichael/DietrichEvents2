@@ -73,7 +73,7 @@ public class DietrichEvents2 {
     }
 
     public void subscribe(final int id, final Object object, final int priority) {
-        if (subscribers.length < id) {
+        if (subscribers.length <= id) {
             resizeArrays(id + 1);
         }
         final Object[] subscriberArr = subscribers[id];
@@ -153,6 +153,9 @@ public class DietrichEvents2 {
      * @param event The event to post.
      */
     public void postInternal(final int id, final AbstractEvent event) {
+        if (subscribers.length <= id) {
+            resizeArrays(id + 1);
+        }
         final Object[] subscriber = subscribers[id];
 
         for (int i = 0; i < subscriber.length; i++) {
