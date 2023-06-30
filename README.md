@@ -8,19 +8,12 @@ If you just want to talk or need help with DietrichEvents2 feel free to join my
 [Discord](https://discord.gg/BwWhCHUKDf).
 
 ## How to add this to your project
-Just copy this part to your *build.gradle*:
-```groovy
-repositories {
-    maven {
-        name = "Jitpack"
-        url = "https://jitpack.io"
-    }
-}
+### Gradle/Maven
+To use DietrichEvents2 with Gradle/Maven you can use this [Maven server](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2) or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
+You can also find instructions how to implement it into your build script there.
 
-dependencies {
-    implementation "com.github.FlorianMichael:DietrichEvents2:1.0.1"
-}
-```
+### Jar File
+If you just want the latest jar file you can download it from the GitHub [Actions](https://github.com/FlorianMichael/DietrichEvents2/actions) or use the [Release](https://github.com/FlorianMichael/DietrichEvents2/releases).
 
 ## Example usage
 ### Create instance

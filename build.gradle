@@ -1,5 +1,6 @@
 plugins {
     id "java"
+    id "maven-publish"
     id "me.champeau.jmh" version "0.7.0"
 }
 
@@ -17,6 +18,58 @@ dependencies {
     jmhAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.36"
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 jar {
     from("LICENSE") { rename { "${it}_${project.archivesBaseName}" } }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "reposilite"
+            def releasesUrl = "https://maven.lenni0451.net/releases"
+            def snapshotsUrl = "https://maven.lenni0451.net/snapshots"
+            url = project.version.endsWith("SNAPSHOT") ? snapshotsUrl : releasesUrl
+
+            credentials(PasswordCredentials)
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            artifactId = project.archivesBaseName
+            groupId = project.group
+            version = project.version
+
+            from components.java
+
+            pom {
+                name = rootProject.name
+                description = "One of the fastest Java event systems in the world, which still has a lot of features"
+                url = "https://github.com/FlorianMichael/DietrichEvents2"
+                licenses {
+                    license {
+                        name = "Apache-2.0 license"
+                        url = "https://github.com/FlorianMichael/DietrichEvents2/blob/main/LICENSE"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "FlorianMichael"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/FlorianMichael/DietrichEvents2.git"
+                    developerConnection = "scm:git:ssh://github.com/FlorianMichael/DietrichEvents2.git"
+                    url = "github.com/FlorianMichael/DietrichEvents2"
+                }
+            }
+        }
+    }
 }
