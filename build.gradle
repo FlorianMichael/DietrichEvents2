@@ -5,7 +5,7 @@ plugins {
 }
 
 archivesBaseName = "DietrichEvents2"
-version = "1.0.1"
+version = "1.0.2-SNAPSHOT"
 group = "de.florianmichael"
 
 repositories {
@@ -50,7 +50,7 @@ publishing {
             from components.java
 
             pom {
-                name = rootProject.name
+                name = artifactId
                 description = "One of the fastest Java event systems in the world, which still has a lot of features"
                 url = "https://github.com/FlorianMichael/DietrichEvents2"
                 licenses {
