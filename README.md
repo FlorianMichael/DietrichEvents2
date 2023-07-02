@@ -79,6 +79,7 @@ The Benchmark shows the average time it takes to call an event 100.000 times. It
 | [Needle](https://github.com/lumii500pg/Needle) EventSystem                    | avgt | 4   | 1191812,547  | 50535,057  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)           | avgt | 4   | 1376700,792  | 89812,282  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (MethodHandles)     | avgt | 4   | 1512119,287  | 48684,697  | ns/op |
+| [ChimeraEventBus](https://github.com/FelixH2012/ChimeraEventBus/tree/master)  | avgt | 4   | 1593575,025  | 269186,377 | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)     | avgt | 4   | 1867717,843  | 100388,819 | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)       | avgt | 4   | 2010686,168  | 222143,047 | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2187790,081  | 84823,084  | ns/op |
