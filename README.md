@@ -70,23 +70,32 @@ DietrichEvents2.global().postInternal(ExampleEvent.ID, new ExampleEvent("Hello W
 ## JMH Benchmark
 The Benchmark shows the average time it takes to call an event 100.000 times. It should be noted that all event systems were run in the same benchmark implementation (see src/jmh), the same hardware and the same Java version (latest Java 8).
 
-| Benchmark                                                                     | Mode | Cnt | Score        | Error      | Units |
-|-------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
-| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)          | avgt | 4   | 315071,130   | 189479,490 | ns/op |
-| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)            | avgt | 4   | 716681.647   | 145474,182 | ns/op |
-| [ASMEvents](https://github.com/Lenni0451/ASMEvents)                           | avgt | 4   | 828250,494   | 84037,890  | ns/op |
-| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory) | avgt | 4   | 1132881,936  | 34955,873  | ns/op |
-| [Needle](https://github.com/lumii500pg/Needle) EventSystem                    | avgt | 4   | 1191812,547  | 50535,057  | ns/op |
-| [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)           | avgt | 4   | 1376700,792  | 89812,282  | ns/op |
-| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (MethodHandles)     | avgt | 4   | 1512119,287  | 48684,697  | ns/op |
-| [ChimeraEventBus](https://github.com/FelixH2012/ChimeraEventBus/tree/master)  | avgt | 4   | 1593575,025  | 269186,377 | ns/op |
-| [norbit](https://github.com/CrosbyDev/norbit)                                 | avgt | 4   | 1611308,382  | 71897,902  | ns/op |
-| [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)     | avgt | 4   | 1867717,843  | 100388,819 | ns/op |
-| [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)       | avgt | 4   | 2010686,168  | 222143,047 | ns/op |
-| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2187790,081  | 84823,084  | ns/op |
-| [EventAPI](https://github.com/Lenni0451/EventAPI) (InjectionEventManager)     | avgt | 4   | 3988598,320  | 81180,767  | ns/op |
-| [EventAPI](https://github.com/Lenni0451/EventAPI) (EventManager)              | avgt | 4   | 5787144,894  | 508915,190 | ns/op |
-| [Cydhra](https://github.com/Cydhra/EventSystem/tree/master) EventSystem       | avgt | 4   | 7245875.479  | 153210,639 | ns/op |
-| [Guava](https://github.com/google/guava)                                      | avgt | 4   | 11210296,024 | 306451,725 | ns/op |
+
+### Java 17
+| Benchmark                                                                     | Mode | Cnt | Score       | Error      | Units |
+|-------------------------------------------------------------------------------|------|-----|-------------|------------|-------|
+| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)          | avgt | 4   | 310318,125  | 124933,800 | ns/op |
+| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)            | avgt | 4   | 717058,403  | 6957,014   | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory) | avgt | 4   | 1134071,045 | 41718,145  | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)    | avgt | 4   | 1593772,392 | 66639,866  | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2164632,230 | 49576,755  | ns/op |
+
+### Java 11
+| Benchmark                                                                     | Mode | Cnt | Score       | Error      | Units |
+|-------------------------------------------------------------------------------|------|-----|-------------|------------|-------|
+| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)          | avgt | 4   | 415349,165  | 7314,048   | ns/op |
+| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)            | avgt | 4   | 973776,952  | 32296,449  | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory) | avgt | 4   | 1130460,687 | 30560,981  | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)    | avgt | 4   | 1504976,295 | 69021,509  | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2205444,424 | 337975,180 | ns/op |
+
+### Java 8
+| Benchmark                                                                     | Mode | Cnt | Score       | Error     | Units |
+|-------------------------------------------------------------------------------|------|-----|-------------|-----------|-------|
+| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)          | avgt | 4   |  635392,941 | 25647,033 | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory) | avgt | 4   | 1129216,906 | 16383,663 | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)    | avgt | 4   | 1495215,777 | 6336,098  | ns/op |
+| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)            | avgt | 4   | 1734243,043 | 11019,632 | ns/op |
+| [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2169950,957 | 50804,811 | ns/op |
 
 This table is not meant to put others down, but simply to support the main message of this event system.
