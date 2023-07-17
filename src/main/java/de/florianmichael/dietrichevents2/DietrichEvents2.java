@@ -17,8 +17,6 @@
 
 package de.florianmichael.dietrichevents2;
 
-import de.florianmichael.dietrichevents2.core.AbstractEvent;
-
 import java.util.Arrays;
 import java.util.function.Consumer;
 
@@ -51,14 +49,29 @@ public class DietrichEvents2 {
         this.errorHandler = errorHandler;
     }
 
+    /**
+     * @param id The id of the event.
+     * @return Whether the event has subscribers.
+     */
     public boolean hasSubscriber(final int id) {
         return subscribers[id].length > 0;
     }
 
+    /**
+     * Subscribes a listener with the given ID to the given class, can be called multiple times.
+     *
+     * @param id The id of the event.
+     * @param object The object to subscribe.
+     */
     public void subscribe(final int id, final Object object) {
         subscribe(id, object, 0);
     }
 
+    /**
+     * Internal method that automatically resizes the array with all subscribers, this method should never be called simply because the event system calls it itself.
+     *
+     * @param maxLength The new maximum length of the array.
+     */
     protected void resizeArrays(final int maxLength) {
         final Object[][] subscribers = Arrays.copyOf(this.subscribers, this.subscribers.length);
         final int[][] priorities = Arrays.copyOf(this.priorities, this.priorities.length);
@@ -72,6 +85,15 @@ public class DietrichEvents2 {
         }
     }
 
+    /**
+     * Subscribes a listener with the given ID to the given class, can be called multiple times.
+     * For priorities see {@link Priorities}.
+     * The higher a priority is, the earlier an event is called.
+     *
+     * @param id The id of the event.
+     * @param object The object to subscribe.
+     * @param priority The priority of the subscriber.
+     */
     public void subscribe(final int id, final Object object, final int priority) {
         if (subscribers.length <= id) {
             resizeArrays(id + 1);
@@ -106,6 +128,11 @@ public class DietrichEvents2 {
         priorities[id] = newPriorityArr;
     }
 
+    /**
+     * Unsubscribes a listener with the given ID from the given class, can be called multiple times.
+     * @param id The id of the event.
+     * @param object The object to unsubscribe.
+     */
     public void unsubscribe(final int id, final Object object) {
         Object[] subscriberArr = subscribers[id];
         int[] priorityArr = priorities[id];
@@ -135,11 +162,15 @@ public class DietrichEvents2 {
     }
 
     /**
-     * Posts an event to all subscribers.
+     * This method is the recommended method for event calling, it calls the postInternal method but has some sanity checks and calls the errorHandler if an error occurs.
      * @param id The id of the event.
      * @param event The event to post.
      */
     public void post(final int id, final AbstractEvent event) {
+        if (subscribers.length <= id) {
+            resizeArrays(id + 1);
+            return;
+        }
         try {
             postInternal(id, event);
         } catch (final Throwable t) {
@@ -148,14 +179,11 @@ public class DietrichEvents2 {
     }
 
     /**
-     * Posts an event to all subscribers.
+     * This method calls all events, with the difference that it has no sanity checks for errors.
      * @param id The id of the event.
      * @param event The event to post.
      */
     public void postInternal(final int id, final AbstractEvent event) {
-        if (subscribers.length <= id) {
-            resizeArrays(id + 1);
-        }
         final Object[] subscriber = subscribers[id];
 
         for (int i = 0; i < subscriber.length; i++) {

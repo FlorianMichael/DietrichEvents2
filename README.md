@@ -21,7 +21,7 @@ You can use either **new DietrichEvents2(exception -> {});** or **DietrichEvents
 
 ### Create an Event
 ```java
-public interface ExampleListener extends Listener {
+public interface ExampleListener {
 
     void onTest(final String example);
 
@@ -68,7 +68,7 @@ DietrichEvents2.global().postInternal(ExampleEvent.ID, new ExampleEvent("Hello W
 ````
 
 ## JMH Benchmark
-The Benchmark shows the average time it takes to call an event 100.000 times. It should be noted that all event systems were run in the same benchmark implementation (see src/jmh), the same hardware and the same Java version (latest Java 17).
+The Benchmark shows the average time it takes to call an event 100.000 times. It should be noted that all event systems were run in the same benchmark implementation (see src/jmh), the same hardware and the same Java version (latest Java 8).
 
 | Benchmark                                                                     | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
@@ -80,6 +80,7 @@ The Benchmark shows the average time it takes to call an event 100.000 times. It
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)           | avgt | 4   | 1376700,792  | 89812,282  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (MethodHandles)     | avgt | 4   | 1512119,287  | 48684,697  | ns/op |
 | [ChimeraEventBus](https://github.com/FelixH2012/ChimeraEventBus/tree/master)  | avgt | 4   | 1593575,025  | 269186,377 | ns/op |
+| [norbit](https://github.com/CrosbyDev/norbit)                                 | avgt | 4   | 1611308,382  | 71897,902  | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)     | avgt | 4   | 1867717,843  | 100388,819 | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)       | avgt | 4   | 2010686,168  | 222143,047 | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)        | avgt | 4   | 2187790,081  | 84823,084  | ns/op |

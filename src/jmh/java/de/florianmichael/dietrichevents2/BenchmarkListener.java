@@ -17,7 +17,6 @@
 
 package de.florianmichael.dietrichevents2;
 
-import de.florianmichael.dietrichevents2.core.AbstractEvent;
 import org.openjdk.jmh.infra.Blackhole;
 
 public interface BenchmarkListener {
