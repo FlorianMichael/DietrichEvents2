@@ -1,5 +1,5 @@
 # DietrichEvents2
-One of the fastest Java event systems in the world, which still has a lot of features
+One of the fastest Java event systems in the world using compiler optimizations, which still has a lot of features
 
 ## Contact
 If you encounter any issues, please report them on the
