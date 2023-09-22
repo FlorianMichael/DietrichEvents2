@@ -5,7 +5,7 @@ plugins {
 }
 
 archivesBaseName = "DietrichEvents2"
-version = "1.0.3-SNAPSHOT"
+version = "1.0.3"
 group = "de.florianmichael"
 
 repositories {
