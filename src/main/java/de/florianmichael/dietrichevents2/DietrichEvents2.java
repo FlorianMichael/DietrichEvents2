@@ -28,7 +28,7 @@ public class DietrichEvents2 {
     /**
      * The global instance of DietrichEvents2.
      */
-    private final static DietrichEvents2 GLOBAL = new DietrichEvents2(Throwable::printStackTrace);
+    private final static DietrichEvents2 GLOBAL = new DietrichEvents2(32, Throwable::printStackTrace);
 
     public static DietrichEvents2 global() {
         return GLOBAL;
@@ -37,15 +37,24 @@ public class DietrichEvents2 {
     /**
      * The subscribers of the event.
      */
-    private Object[][] subscribers = new Object[32][0];
-    private int[][] priorities = new int[32][0];
+    private Object[][] subscribers;
+    private int[][] priorities;
 
     /**
      * The errorHandler consumer will be called when an exception is thrown in a subscriber.
      */
     public Consumer<Throwable> errorHandler;
 
-    public DietrichEvents2(final Consumer<Throwable> errorHandler) {
+    /**
+     * Creates a new instance of DietrichEvents2. The trackingDefault parameter is the default size of the array that stores all subscribers.
+     *
+     * @param trackingDefault The default size of the array that stores all subscribers.
+     * @param errorHandler    The errorHandler consumer will be called when an exception is thrown in a subscriber.
+     */
+    public DietrichEvents2(final int trackingDefault, final Consumer<Throwable> errorHandler) {
+        this.subscribers = new Object[trackingDefault][0];
+        this.priorities = new int[trackingDefault][0];
+
         this.errorHandler = errorHandler;
     }
 
