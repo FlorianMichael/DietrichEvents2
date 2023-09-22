@@ -19,6 +19,7 @@ package de.florianmichael.dietrichevents2;
 
 /**
  * This class represents an event that can be cancelled.
+ *
  * @param <T> The type of the listener.
  */
 public abstract class CancellableEvent<T> extends AbstractEvent<T> {

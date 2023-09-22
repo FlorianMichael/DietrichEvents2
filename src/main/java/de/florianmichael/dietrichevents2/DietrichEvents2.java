@@ -60,7 +60,7 @@ public class DietrichEvents2 {
     /**
      * Subscribes a listener with the given ID to the given class, can be called multiple times.
      *
-     * @param id The id of the event.
+     * @param id     The id of the event.
      * @param object The object to subscribe.
      */
     public void subscribe(final int id, final Object object) {
@@ -90,8 +90,8 @@ public class DietrichEvents2 {
      * For priorities see {@link Priorities}.
      * The higher a priority is, the earlier an event is called.
      *
-     * @param id The id of the event.
-     * @param object The object to subscribe.
+     * @param id       The id of the event.
+     * @param object   The object to subscribe.
      * @param priority The priority of the subscriber.
      */
     public void subscribe(final int id, final Object object, final int priority) {
@@ -130,7 +130,8 @@ public class DietrichEvents2 {
 
     /**
      * Unsubscribes a listener with the given ID from the given class, can be called multiple times.
-     * @param id The id of the event.
+     *
+     * @param id     The id of the event.
      * @param object The object to unsubscribe.
      */
     public void unsubscribe(final int id, final Object object) {
@@ -163,7 +164,8 @@ public class DietrichEvents2 {
 
     /**
      * This method is the recommended method for event calling, it calls the postInternal method but has some sanity checks and calls the errorHandler if an error occurs.
-     * @param id The id of the event.
+     *
+     * @param id    The id of the event.
      * @param event The event to post.
      */
     public void post(final int id, final AbstractEvent event) {
@@ -180,7 +182,8 @@ public class DietrichEvents2 {
 
     /**
      * This method calls all events, with the difference that it has no sanity checks for errors.
-     * @param id The id of the event.
+     *
+     * @param id    The id of the event.
      * @param event The event to post.
      */
     public void postInternal(final int id, final AbstractEvent event) {
