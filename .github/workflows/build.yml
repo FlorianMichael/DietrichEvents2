@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: build
-        run: ./gradlew build -x signArchives
+        run: ./gradlew build
       - uses: actions/upload-artifact@v3
         with:
           name: Artifacts
