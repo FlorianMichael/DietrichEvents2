@@ -87,7 +87,6 @@ publishing {
 }
 
 signing {
-    setRequired true
     sign configurations.archives
     sign publishing.publications.maven
 }
