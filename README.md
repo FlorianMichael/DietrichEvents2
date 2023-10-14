@@ -9,7 +9,7 @@ If you just want to talk or need help with DietrichEvents2 feel free to join my
 
 ## How to add this to your project
 ### Gradle/Maven
-To use DietrichEvents2 with Gradle/Maven you can use this [Maven server](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2) or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
+To use DietrichEvents2 with Gradle/Maven you can use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2), [Lenni0451 server](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2) or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
