@@ -5,9 +5,11 @@ plugins {
     id "me.champeau.jmh" version "0.7.0"
 }
 
-archivesBaseName = project.maven_name
-version = project.maven_version
-group = project.maven_group
+base {
+    archivesName = project.maven_name
+    version = project.maven_version
+    group = project.maven_group
+}
 
 repositories {
     mavenCentral()
@@ -22,6 +24,14 @@ dependencies {
 java {
     withSourcesJar()
     withJavadocJar()
+
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 jar {
