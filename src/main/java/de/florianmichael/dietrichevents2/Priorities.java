@@ -18,16 +18,16 @@
 package de.florianmichael.dietrichevents2;
 
 /**
- * This class is optional and does not have to be used
+ * This class is optional and does not have to be used. It shows how priorities can be used. Priorities are sorted
+ * against natural order, so the highest priority is the highest number.
  */
 public class Priorities {
 
+    public final static int FALLBACK = Integer.MIN_VALUE;
     public final static int LOWEST = -2;
     public final static int LOW = -1;
-    public final static int NORMAL = 0;
+    public final static int NORMAL = 0; // Default priority
     public final static int HIGH = 1;
     public final static int HIGHEST = 2;
-
     public final static int MONITOR = Integer.MAX_VALUE;
-    public final static int FALLBACK = Integer.MIN_VALUE;
 }
