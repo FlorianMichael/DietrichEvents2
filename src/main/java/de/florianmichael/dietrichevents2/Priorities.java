@@ -27,4 +27,7 @@ public class Priorities {
     public final static int NORMAL = 0;
     public final static int HIGH = 1;
     public final static int HIGHEST = 2;
+
+    public final static int MONITOR = Integer.MAX_VALUE;
+    public final static int FALLBACK = Integer.MIN_VALUE;
 }
