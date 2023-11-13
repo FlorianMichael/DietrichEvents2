@@ -46,14 +46,23 @@ public class DietrichEvents2 {
     public Consumer<Throwable> errorHandler;
 
     /**
-     * Creates a new instance of DietrichEvents2. The trackingDefault parameter is the default size of the array that stores all subscribers.
+     * Creates a new instance of DietrichEvents2. The maxEvents parameter is the default size of the array that stores all subscribers.
      *
-     * @param trackingDefault The default size of the array that stores all subscribers.
-     * @param errorHandler    The errorHandler consumer will be called when an exception is thrown in a subscriber.
+     * @param eventCapacity The default size of the array that stores all subscribers.
      */
-    public DietrichEvents2(final int trackingDefault, final Consumer<Throwable> errorHandler) {
-        this.subscribers = new Object[trackingDefault][0];
-        this.priorities = new int[trackingDefault][0];
+    public DietrichEvents2(final int eventCapacity) {
+        this(eventCapacity, Throwable::printStackTrace);
+    }
+
+    /**
+     * Creates a new instance of DietrichEvents2. The maxEvents parameter is the default size of the array that stores all subscribers.
+     *
+     * @param eventCapacity The default size of the array that stores all subscribers.
+     * @param errorHandler  The errorHandler consumer will be called when an exception is thrown in a subscriber.
+     */
+    public DietrichEvents2(final int eventCapacity, final Consumer<Throwable> errorHandler) {
+        this.subscribers = new Object[eventCapacity][0];
+        this.priorities = new int[eventCapacity][0];
 
         this.errorHandler = errorHandler;
     }
@@ -64,6 +73,32 @@ public class DietrichEvents2 {
      */
     public boolean hasSubscriber(final int id) {
         return subscribers[id].length > 0;
+    }
+
+    /**
+     * @param id The id of the event.
+     * @return The subscribers of the event, if there are no subscribers null will be returned.
+     */
+    public Object[] getSubscribers(final int id) {
+        if (!hasSubscriber(id)) {
+            return null;
+        }
+        return subscribers[id];
+    }
+
+    /**
+     * @param id     The id of the event.
+     * @param object The object to check.
+     * @return Whether the object is a subscriber of the event.
+     */
+    public boolean isSubscriber(final int id, final Object object) {
+        final Object[] subscriberArr = subscribers[id];
+        for (Object o : subscriberArr) {
+            if (o == object) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -79,15 +114,18 @@ public class DietrichEvents2 {
     /**
      * Internal method that automatically resizes the array with all subscribers, this method should never be called simply because the event system calls it itself.
      *
-     * @param maxLength The new maximum length of the array.
+     * @param eventCapacity The new maximum length of the array.
      */
-    protected void resizeArrays(final int maxLength) {
+    public void setEventCapacity(final int eventCapacity) {
+        // Copy old arrays
         final Object[][] subscribers = Arrays.copyOf(this.subscribers, this.subscribers.length);
         final int[][] priorities = Arrays.copyOf(this.priorities, this.priorities.length);
 
-        this.subscribers = new Object[maxLength][0];
-        this.priorities = new int[maxLength][0];
+        // Create new arrays
+        this.subscribers = new Object[eventCapacity][0];
+        this.priorities = new int[eventCapacity][0];
 
+        // Fill old arrays into new arrays
         for (int i = 0; i < subscribers.length; i++) {
             this.subscribers[i] = subscribers[i];
             this.priorities[i] = priorities[i];
@@ -104,9 +142,8 @@ public class DietrichEvents2 {
      * @param priority The priority of the subscriber.
      */
     public void subscribe(final int id, final Object object, final int priority) {
-        if (subscribers.length <= id) {
-            resizeArrays(id + 1);
-        }
+        if (subscribers.length <= id) setEventCapacity(id + 1); // Resize event capacity if needed
+
         final Object[] subscriberArr = subscribers[id];
         final int[] priorityArr = priorities[id];
 
@@ -172,16 +209,27 @@ public class DietrichEvents2 {
     }
 
     /**
+     * Unsubscribes all listeners from the given type.
+     *
+     * @param id The id of the event.
+     */
+    public void unsubscribeAll(final int id) {
+        subscribers[id] = new Object[0];
+        priorities[id] = new int[0];
+    }
+
+    /**
      * This method is the recommended method for event calling, it calls the postInternal method but has some sanity checks and calls the errorHandler if an error occurs.
      *
      * @param id    The id of the event.
      * @param event The event to post.
      */
     public void post(final int id, final AbstractEvent event) {
-        if (subscribers.length <= id) {
-            resizeArrays(id + 1);
+        if (subscribers.length <= id) { // Resize event capacity if needed
+            setEventCapacity(id + 1);
             return;
         }
+
         try {
             postInternal(id, event);
         } catch (final Throwable t) {
@@ -190,7 +238,7 @@ public class DietrichEvents2 {
     }
 
     /**
-     * This method calls all events, with the difference that it has no sanity checks for errors.
+     * This method is the internal method for event calling, it should never be called directly.
      *
      * @param id    The id of the event.
      * @param event The event to post.
