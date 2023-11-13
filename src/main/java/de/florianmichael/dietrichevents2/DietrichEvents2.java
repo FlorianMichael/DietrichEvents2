@@ -102,16 +102,6 @@ public class DietrichEvents2 {
     }
 
     /**
-     * Subscribes a listener with the given ID to the given class, can be called multiple times.
-     *
-     * @param id     The id of the event.
-     * @param object The object to subscribe.
-     */
-    public void subscribe(final int id, final Object object) {
-        subscribe(id, object, 0);
-    }
-
-    /**
      * Internal method that automatically resizes the array with all subscribers, this method should never be called simply because the event system calls it itself.
      *
      * @param eventCapacity The new maximum length of the array.
@@ -130,6 +120,39 @@ public class DietrichEvents2 {
             this.subscribers[i] = subscribers[i];
             this.priorities[i] = priorities[i];
         }
+    }
+
+    /**
+     * Subscribes a listener with all given IDs to the given class, can be called multiple times.
+     *
+     * @param object The object to subscribe.
+     * @param ids    The ids of the events.
+     */
+    public void subscribe(final Object object, final int... ids) {
+        subscribe(object, 0, ids);
+    }
+
+    /**
+     * Subscribes a listener with all given IDs to the given class, can be called multiple times.
+     *
+     * @param object   The object to subscribe.
+     * @param ids      The ids of the events.
+     * @param priority The priority of the subscriber.
+     */
+    public void subscribe(final Object object, final int priority, final int... ids) {
+        for (int id : ids) {
+            subscribe(id, object, priority);
+        }
+    }
+
+    /**
+     * Subscribes a listener with the given ID to the given class, can be called multiple times.
+     *
+     * @param id     The id of the event.
+     * @param object The object to subscribe.
+     */
+    public void subscribe(final int id, final Object object) {
+        subscribe(id, object, 0);
     }
 
     /**
