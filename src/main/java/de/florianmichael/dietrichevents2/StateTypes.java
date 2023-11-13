@@ -20,7 +20,11 @@ package de.florianmichael.dietrichevents2;
 /**
  * This class is optional and does not have to be used
  */
-public enum EventStateType {
+public enum StateTypes {
 
-    PRE_PRE, PRE, POST, POST_POST
+    FIRST,
+    PRE,
+    INTRA,
+    POST,
+    LAST
 }
