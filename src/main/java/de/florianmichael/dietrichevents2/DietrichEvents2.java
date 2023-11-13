@@ -46,7 +46,7 @@ public class DietrichEvents2 {
     public Consumer<Throwable> errorHandler;
 
     /**
-     * Creates a new instance of DietrichEvents2. The maxEvents parameter is the default size of the array that stores all subscribers.
+     * Creates a new instance of DietrichEvents2. The eventCapacity parameter is the default size of the array that stores all subscribers.
      *
      * @param eventCapacity The default size of the array that stores all subscribers.
      */
