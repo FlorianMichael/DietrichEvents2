@@ -17,7 +17,6 @@
 
 package de.florianmichael.dietrichevents2;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 /**
@@ -102,14 +101,14 @@ public class DietrichEvents2 {
     }
 
     /**
-     * Internal method that automatically resizes the array with all subscribers, this method should never be called simply because the event system calls it itself.
+     * Internal method that automatically resizes the array with all subscribers,
+     * this method should never be called simply because the event system calls it itself.
      *
      * @param eventCapacity The new maximum length of the array.
      */
     public void setEventCapacity(final int eventCapacity) {
-        // Copy old arrays
-        final Object[][] subscribers = Arrays.copyOf(this.subscribers, this.subscribers.length);
-        final int[][] priorities = Arrays.copyOf(this.priorities, this.priorities.length);
+        final Object[][] subscribers = this.subscribers;
+        final int[][] priorities = this.priorities;
 
         // Create new arrays
         this.subscribers = new Object[eventCapacity][0];
