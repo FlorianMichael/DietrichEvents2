@@ -137,4 +137,6 @@ If you want to have another event system in the list, or want to have the source
 | [Cydhra](https://github.com/Cydhra/EventSystem/tree/master) (Event System)                                              | avgt | 4   | 7357398,698  | 92774,097  | ns/op |
 | [Guava](https://github.com/google/guava)                                                                                | avgt | 4   | 11945301,707 | 239846,530 | ns/op |
 
+Date of the benchmark: 2023-07-17
+
 *This table is not meant to put others down, but simply to support the main message of this event system.*
