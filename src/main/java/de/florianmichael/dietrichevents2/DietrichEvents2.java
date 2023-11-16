@@ -102,23 +102,21 @@ public class DietrichEvents2 {
     }
 
     /**
-     * Internal method that automatically resizes the array with all subscribers, this method should never be called simply because the event system calls it itself.
+     * Internal method that automatically resizes the array with all subscribers,
+     * this method should never be called simply because the event system calls it itself.
      *
      * @param eventCapacity The new maximum length of the array.
      */
     public void setEventCapacity(final int eventCapacity) {
-        // Copy old arrays
-        final Object[][] subscribers = Arrays.copyOf(this.subscribers, this.subscribers.length);
-        final int[][] priorities = Arrays.copyOf(this.priorities, this.priorities.length);
+        final int oldLength = this.subscribers.length;
+        // Copy old arrays with new capacity.
+        this.subscribers = Arrays.copyOf(this.subscribers, eventCapacity);
+        this.priorities = Arrays.copyOf(this.priorities, eventCapacity);
 
-        // Create new arrays
-        this.subscribers = new Object[eventCapacity][0];
-        this.priorities = new int[eventCapacity][0];
-
-        // Fill old arrays into new arrays
-        for (int i = 0; i < subscribers.length; i++) {
-            this.subscribers[i] = subscribers[i];
-            this.priorities[i] = priorities[i];
+        // Populate new range with arrays.
+        for (int i = oldLength; i < eventCapacity; i++) {
+            this.subscribers[i] = new Object[0];
+            this.priorities[i] = new int[0];
         }
     }
 
