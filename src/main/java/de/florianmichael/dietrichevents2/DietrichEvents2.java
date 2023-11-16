@@ -17,7 +17,6 @@
 
 package de.florianmichael.dietrichevents2;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 /**
@@ -108,15 +107,17 @@ public class DietrichEvents2 {
      * @param eventCapacity The new maximum length of the array.
      */
     public void setEventCapacity(final int eventCapacity) {
-        final int oldLength = this.subscribers.length;
-        // Copy old arrays with new capacity.
-        this.subscribers = Arrays.copyOf(this.subscribers, eventCapacity);
-        this.priorities = Arrays.copyOf(this.priorities, eventCapacity);
+        final Object[][] subscribers = this.subscribers;
+        final int[][] priorities = this.priorities;
 
-        // Populate new range with arrays.
-        for (int i = oldLength; i < eventCapacity; i++) {
-            this.subscribers[i] = new Object[0];
-            this.priorities[i] = new int[0];
+        // Create new arrays
+        this.subscribers = new Object[eventCapacity][0];
+        this.priorities = new int[eventCapacity][0];
+
+        // Fill old arrays into new arrays
+        for (int i = 0; i < subscribers.length; i++) {
+            this.subscribers[i] = subscribers[i];
+            this.priorities[i] = priorities[i];
         }
     }
 
