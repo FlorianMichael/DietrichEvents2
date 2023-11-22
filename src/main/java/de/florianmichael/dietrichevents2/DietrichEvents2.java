@@ -135,10 +135,10 @@ public class DietrichEvents2 {
      * Subscribes a listener with all given IDs to the given class, can be called multiple times.
      *
      * @param object   The object to subscribe.
-     * @param ids      The ids of the events.
      * @param priority The priority of the subscriber.
+     * @param ids      The ids of the events.
      */
-    public void subscribe(final Object object, final int priority, final int... ids) {
+    public void subscribe(final Object object, final int priority, final int[] ids) {
         for (int id : ids) {
             subscribe(id, object, priority);
         }
@@ -194,6 +194,12 @@ public class DietrichEvents2 {
 
         subscribers[id] = newSubscriberArr;
         priorities[id] = newPriorityArr;
+    }
+
+    public void unsubscribe(final Object object, final int... ids) {
+        for (int id : ids) {
+            unsubscribe(id, object);
+        }
     }
 
     /**
