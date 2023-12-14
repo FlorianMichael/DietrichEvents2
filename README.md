@@ -110,9 +110,7 @@ write me on Discord, look for it at "Contact" above. <br>
 | [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)                                                      | avgt | 4   | 627457,818   | 12842,704  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)                                                 | avgt | 4   | 769492,673   | 18975,650  | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)                                               | avgt | 4   | 1020463,350  | 70117,174  | ns/op |
-| [Needle](https://github.com/sugisaru/Needle) EventSystem                                                                | avgt | 4   | 1021693,491  | 24196,860  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory)                                           | avgt | 4   | 1134071,045  | 41718,145  | ns/op |
-| [Needle](https://github.com/sugisaru/Needle/tree/2214a4c1c1b6253d5bc67fbba11fc534d3ec055d) EventSystem (KitsuneAlex PR) | avgt | 4   | 1209510,353  | 152778,837 | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)                                              | avgt | 4   | 1593772,392  | 66639,866  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)                                                  | avgt | 4   | 2164632,230  | 49576,755  | ns/op |
 | [Cydhra](https://github.com/Cydhra/EventSystem/tree/master) (Event System)                                              | avgt | 4   | 5169086,080  | 58597,729  | ns/op |
@@ -131,8 +129,6 @@ write me on Discord, look for it at "Contact" above. <br>
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)                                                 | avgt | 4   | 770001,532   | 24463,218  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)                                                     | avgt | 4   | 771670,427   | 13801,284  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory)                                           | avgt | 4   | 1130460,687  | 30560,981  | ns/op |
-| [Needle](https://github.com/sugisaru/Needle) EventSystem                                                                | avgt | 4   | 1212077,331  | 67071,275  | ns/op |
-| [Needle](https://github.com/sugisaru/Needle/tree/2214a4c1c1b6253d5bc67fbba11fc534d3ec055d) EventSystem (KitsuneAlex PR) | avgt | 4   | 1360801,867  | 24181,835  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)                                              | avgt | 4   | 1504976,295  | 69021,509  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)                                                  | avgt | 4   | 2205444,424  | 337975,180 | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (InjectionEventManager)                                               | avgt | 4   | 3015519,829  | 44426,039  | ns/op |
@@ -151,8 +147,6 @@ write me on Discord, look for it at "Contact" above. <br>
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)                                                     | avgt | 4   | 1399196,527  | 55170,229  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)                                              | avgt | 4   | 1495215,777  | 6336,098   | ns/op |
 | [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)                                                      | avgt | 4   | 1497398,449  | 128637,113 | ns/op |
-| [Needle](https://github.com/sugisaru/Needle) EventSystem                                                                | avgt | 4   | 1510824,164  | 55351,446  | ns/op |
-| [Needle](https://github.com/sugisaru/Needle/tree/2214a4c1c1b6253d5bc67fbba11fc534d3ec055d) EventSystem (KitsuneAlex PR) | avgt | 4   | 1633057,398  | 45904,437  | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)                                               | avgt | 4   | 1870394,664  | 59848,353  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)                                                  | avgt | 4   | 2169950,957  | 50804,811  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (InjectionEventManager)                                               | avgt | 4   | 3832627,003  | 73982,528  | ns/op |
