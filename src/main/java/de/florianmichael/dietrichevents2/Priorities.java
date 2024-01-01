@@ -23,12 +23,12 @@ package de.florianmichael.dietrichevents2;
  */
 public class Priorities {
 
-    public final static int FALLBACK = Integer.MIN_VALUE;
-    public final static int LOWEST = -2;
-    public final static int LOW = -1;
-    public final static int NORMAL = 0; // Default priority
-    public final static int HIGH = 1;
-    public final static int HIGHEST = 2;
-    public final static int MONITOR = Integer.MAX_VALUE;
+    public static final int FALLBACK = Integer.MIN_VALUE;
+    public static final int LOWEST = -2;
+    public static final int LOW = -1;
+    public static final int NORMAL = 0; // Default priority
+    public static final int HIGH = 1;
+    public static final int HIGHEST = 2;
+    public static final int MONITOR = Integer.MAX_VALUE;
 
 }

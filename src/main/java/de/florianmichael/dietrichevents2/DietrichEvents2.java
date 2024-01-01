@@ -27,7 +27,7 @@ public class DietrichEvents2 {
     /**
      * The global instance of DietrichEvents2.
      */
-    private final static DietrichEvents2 GLOBAL = new DietrichEvents2(32, Throwable::printStackTrace);
+    private static final DietrichEvents2 GLOBAL = new DietrichEvents2(32, Throwable::printStackTrace);
 
     public static DietrichEvents2 global() {
         return GLOBAL;

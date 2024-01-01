@@ -43,7 +43,7 @@ public interface ExampleListener {
         /**
          * The ID has to be incremented for every new Event
          */
-        public final static int ID = 0;
+        public static final int ID = 0;
         public final String example;
 
         public ExampleEvent(final String example) {

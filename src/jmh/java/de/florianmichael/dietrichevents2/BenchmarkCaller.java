@@ -27,13 +27,13 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 4, time = 5)
 @Measurement(iterations = 4, time = 5)
 public class BenchmarkCaller implements BenchmarkListener {
-    private final static int ITERATIONS = 100_000;
+
+    private static final int ITERATIONS = 100_000;
 
     @Setup
     public void setup() {
         DietrichEvents2.global().subscribe(BenchmarkEvent.ID, this);
     }
-
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -48,4 +48,5 @@ public class BenchmarkCaller implements BenchmarkListener {
     public void onBenchmark(Blackhole blackhole) {
         blackhole.consume(Integer.bitCount(Integer.parseInt("123")));
     }
+
 }

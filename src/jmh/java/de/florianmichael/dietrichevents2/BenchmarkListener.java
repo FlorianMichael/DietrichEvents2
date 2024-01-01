@@ -38,4 +38,5 @@ public interface BenchmarkListener {
             listener.onBenchmark(this.blackhole);
         }
     }
+
 }
