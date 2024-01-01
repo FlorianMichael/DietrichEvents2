@@ -278,4 +278,5 @@ public class DietrichEvents2 {
             event.call(subscriber[i]);
         }
     }
+
 }

@@ -30,4 +30,5 @@ public class Priorities {
     public final static int HIGH = 1;
     public final static int HIGHEST = 2;
     public final static int MONITOR = Integer.MAX_VALUE;
+
 }

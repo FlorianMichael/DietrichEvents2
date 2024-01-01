@@ -43,4 +43,5 @@ public abstract class CancellableEvent<T> extends AbstractEvent<T> {
     public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
     }
+
 }

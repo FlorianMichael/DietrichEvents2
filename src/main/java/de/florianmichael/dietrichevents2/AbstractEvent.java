@@ -30,4 +30,5 @@ public abstract class AbstractEvent<T> {
      * @param listener The listener to call.
      */
     public abstract void call(final T listener);
+
 }
