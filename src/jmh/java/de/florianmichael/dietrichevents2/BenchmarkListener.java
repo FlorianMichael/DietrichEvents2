@@ -37,6 +37,7 @@ public interface BenchmarkListener {
         public void call(BenchmarkListener listener) {
             listener.onBenchmark(this.blackhole);
         }
+
     }
 
 }
