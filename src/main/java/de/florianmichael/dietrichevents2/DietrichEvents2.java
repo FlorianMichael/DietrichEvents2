@@ -132,6 +132,8 @@ public class DietrichEvents2 {
         }
     }
 
+    // ---------------------------------------------------------------------------
+
     /**
      * Subscribes a listener with all given IDs to the given class, can be called multiple times.
      *
@@ -257,6 +259,8 @@ public class DietrichEvents2 {
         priorities[id] = new int[0];
     }
 
+    // ---------------------------------------------------------------------------
+
     /**
      * Calls an event and takes care of any exceptions that might be thrown by calling the {@link #errorHandler}
      *
@@ -264,7 +268,7 @@ public class DietrichEvents2 {
      * @param event The event to call.
      */
     public void call(final int id, final AbstractEvent event) {
-        if (assertArraySize(id)) {
+        if (subscribers.length > id) {
             try {
                 callUnsafe(id, event);
             } catch (final Throwable t) {
@@ -273,6 +277,23 @@ public class DietrichEvents2 {
         }
     }
 
+
+    /**
+     * Calls an event without taking care of error handling or capacity. This method should only be used in an environment
+     * where you know that everything is set up correctly, and you really care about performance.
+     *
+     * @param id    The id of the event.
+     * @param event The event to call.
+     */
+    public void callUnsafe(final int id, final AbstractEvent event) {
+        final Object[] subscriber = subscribers[id];
+
+        for (int i = 0; i < subscriber.length; i++) {
+            event.call(subscriber[i]);
+        }
+    }
+
+
     /**
      * Calls an event and handles the {@link BreakableException} by breaking the loop.
      *
@@ -280,10 +301,9 @@ public class DietrichEvents2 {
      * @param event The event to call.
      */
     public void callBreakable(final int id, final AbstractEvent event) {
-        if (!assertArraySize(id)) {
+        if (subscribers.length <= id) {
             return;
         }
-
         final Object[] subscriber = subscribers[id];
         for (Object o : subscriber) {
             try {
@@ -304,35 +324,20 @@ public class DietrichEvents2 {
      * @param event The event to call.
      */
     public void callExceptionally(final int id, final AbstractEvent event) {
-        if (assertArraySize(id)) {
+        if (subscribers.length > id) {
             callUnsafe(id, event);
         }
     }
 
-    /**
-     * Calls an event without taking care of error handling or capacity resizing. This method should not be used normally.
-     *
-     * @param id    The id of the event.
-     * @param event The event to call.
-     */
-    public void callUnsafe(final int id, final AbstractEvent event) {
-        final Object[] subscriber = subscribers[id];
-
-        for (int i = 0; i < subscriber.length; i++) {
-            event.call(subscriber[i]);
-        }
-    }
-
-    private boolean assertArraySize(final int id) {
-        if (subscribers.length <= id) {
-            setEventCapacity(id + 1);
-            return false;
-        }
-        return true;
-    }
+    // ---------------------------------------------------------------------------
+    // Deprecated methods
 
     @Deprecated
     public void post(final int id, final AbstractEvent event) {
+        if (subscribers.length <= id) {
+            setEventCapacity(id + 1);
+            return;
+        }
         call(id, event);
     }
 
