@@ -18,7 +18,8 @@
 package de.florianmichael.dietrichevents2;
 
 /**
- * This class represents an event that can be aborted.
+ * This class represents an event that can be aborted. Event types that extend this class have to be static in order to
+ * work. Listeners can call {@link #stopHandling()} to abort the event.
  *
  * @param <T> The type of the listener.
  */
