@@ -16,6 +16,9 @@ repositories {
 }
 
 dependencies {
+    testImplementation platform("org.junit:junit-bom:5.9.3")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+
     jmh "org.openjdk.jmh:jmh-core:1.36"
     jmh "org.openjdk.jmh:jmh-generator-annprocess:1.36"
     jmhAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.36"
@@ -40,6 +43,14 @@ jar {
             "${it}_${project.archivesBaseName}"
         }
     }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    maxParallelForks Runtime.runtime.availableProcessors()
 }
 
 publishing {
