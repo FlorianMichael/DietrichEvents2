@@ -58,11 +58,18 @@ public class DietrichEvents2 {
      *
      * @param eventCapacity The default size of the array that stores all subscribers.
      * @param errorHandler  The errorHandler consumer will be called when an exception is thrown in a subscriber.
+     * @throws IllegalArgumentException If the eventCapacity is less than 1 or the errorHandler is null.
      */
     public DietrichEvents2(final int eventCapacity, final Consumer<Throwable> errorHandler) {
+        if (eventCapacity < 1) {
+            throw new IllegalArgumentException("Event capacity must be at least 1");
+        }
         this.subscribers = new Object[eventCapacity][0];
         this.priorities = new int[eventCapacity][0];
 
+        if (errorHandler == null) {
+            throw new IllegalArgumentException("Error handler must not be null");
+        }
         this.errorHandler = errorHandler;
     }
 
@@ -105,8 +112,12 @@ public class DietrichEvents2 {
      * this method should never be called simply because the event system calls it itself.
      *
      * @param eventCapacity The new maximum length of the array.
+     * @throws IllegalArgumentException If the eventCapacity is less than 1.
      */
     public void setEventCapacity(final int eventCapacity) {
+        if (eventCapacity < 1) {
+            throw new IllegalArgumentException("Event capacity must be at least 1");
+        }
         final Object[][] subscribers = this.subscribers;
         final int[][] priorities = this.priorities;
 
