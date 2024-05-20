@@ -31,7 +31,7 @@ public abstract class BreakableEvent<T> extends AbstractEvent<T> {
     private boolean abort;
 
     @Override
-    public void call(T listener) {
+    public final void call(T listener) {
         if (!isAbort()) {
             call0(listener);
         }
