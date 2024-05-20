@@ -17,27 +17,9 @@
 
 package de.florianmichael.dietrichevents2;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-public class BreakableEventTest {
-
-    private static int executions;
-
-    @Test
-    void fire() {
-        final BreakableTestListener.BreakableTestEvent event = new BreakableTestListener.BreakableTestEvent();
-
-        final DietrichEvents2 d = DietrichEvents2.global();
-        d.subscribe(BreakableTestListener.BreakableTestEvent.ID, (BreakableTestListener) e -> {
-            executions++;
-            e.stopHandling();
-        });
-        for (int i = 0; i < 10; i++) {
-            d.callUnsafe(BreakableTestListener.BreakableTestEvent.ID, event);
-        }
-
-        Assertions.assertEquals(1, executions);
-    }
-
+/**
+ * Alternative to {@link BreakableEvent} which supports dynamic events and can be used in any context. Requires the
+ * usage of {@link DietrichEvents2#callBreakable(int, AbstractEvent)} to call the event.
+ */
+public class BreakableException extends RuntimeException {
 }

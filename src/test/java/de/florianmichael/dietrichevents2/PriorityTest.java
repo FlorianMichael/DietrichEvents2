@@ -36,7 +36,7 @@ public class PriorityTest {
         DietrichEvents2.global().subscribe(TestListener.TestEvent.ID, createListener("Test4"), Priorities.LOW);
         DietrichEvents2.global().subscribe(TestListener.TestEvent.ID, createListener("Test6"), Priorities.FALLBACK);
         DietrichEvents2.global().subscribe(TestListener.TestEvent.ID, createListener("Test7"), Priorities.MONITOR);
-        DietrichEvents2.global().post(TestListener.TestEvent.ID, new TestListener.TestEvent(null));
+        DietrichEvents2.global().callUnsafe(TestListener.TestEvent.ID, new TestListener.TestEvent(null));
 
         Assertions.assertEquals(VALUES.get(0), "Test7");
         Assertions.assertEquals(VALUES.get(1), "Test5");

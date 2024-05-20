@@ -49,8 +49,8 @@ public class GlobalTest {
 
     @Test
     void fire() {
-        DietrichEvents2.global().post(TestListener.TestEvent.ID, new TestListener.TestEvent("Hello World"));
-        DietrichEvents2.global().post(TestListener.TestEvent.ID, new TestListener.TestEvent(10));
+        DietrichEvents2.global().callUnsafe(TestListener.TestEvent.ID, new TestListener.TestEvent("Hello World"));
+        DietrichEvents2.global().callUnsafe(TestListener.TestEvent.ID, new TestListener.TestEvent(10));
 
         Assertions.assertTrue(VALUES.contains("Hello World"));
         Assertions.assertTrue(VALUES.contains(10));

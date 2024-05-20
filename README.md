@@ -78,8 +78,21 @@ public class Test implements ExampleListener {
 ### Calling an Event
 
 ````java
+// There are multiple call methods which can be used depending on the situation:
+
+// - callUnsafe() -> Calls the event without any error handling or 
+// internal resizing (DietrichEvents2#global() won't support more than 
+// 32 listeners with this method)
+
+// - call() -> Calls the event with error handling and internal resizing (recommended)
+
+// - callBreakable() -> Calls the event with error handling for every listener and supports
+// BreakableException to be thrown (also does resize)
+
+// - callExceptionally() -> Calls the event with internal resizing but without error handling
+
 // There is also a post() method which uses the error handler (try catch)
-DietrichEvents2.global().postInternal(ExampleEvent.ID,new ExampleEvent("Hello World!"));
+DietrichEvents2.global().call(ExampleEvent.ID, new ExampleEvent("Hello World!"));
 ````
 
 ## JMH Benchmark

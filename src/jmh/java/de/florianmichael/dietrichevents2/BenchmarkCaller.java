@@ -40,7 +40,7 @@ public class BenchmarkCaller implements BenchmarkListener {
     @Fork(value = 1, warmups = 1)
     public void callBenchmarkListener(Blackhole blackhole) {
         for (int i = 0; i < ITERATIONS; i++) {
-            DietrichEvents2.global().postInternal(BenchmarkEvent.ID, new BenchmarkListener.BenchmarkEvent(blackhole));
+            DietrichEvents2.global().call(BenchmarkEvent.ID, new BenchmarkListener.BenchmarkEvent(blackhole));
         }
     }
 

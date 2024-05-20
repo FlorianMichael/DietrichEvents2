@@ -28,7 +28,7 @@ public class CancellableEventTest {
         d.subscribe(CancellableTestListener.CancellableTestEvent.ID, (CancellableTestListener) CancellableEvent::cancel);
 
         CancellableTestListener.CancellableTestEvent event = new CancellableTestListener.CancellableTestEvent();
-        d.post(CancellableTestListener.CancellableTestEvent.ID, event);
+        d.callUnsafe(CancellableTestListener.CancellableTestEvent.ID, event);
         Assertions.assertTrue(event.isCancelled());
     }
 

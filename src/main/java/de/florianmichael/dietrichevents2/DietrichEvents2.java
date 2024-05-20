@@ -258,36 +258,87 @@ public class DietrichEvents2 {
     }
 
     /**
-     * This method is the recommended method for event calling, it calls the postInternal method but has some sanity checks and calls the errorHandler if an error occurs.
+     * Calls an event and takes care of any exceptions that might be thrown by calling the {@link #errorHandler}
      *
      * @param id    The id of the event.
-     * @param event The event to post.
+     * @param event The event to call.
      */
-    public void post(final int id, final AbstractEvent event) {
-        if (subscribers.length <= id) { // Resize event capacity if needed
-            setEventCapacity(id + 1);
-            return;
-        }
-
-        try {
-            postInternal(id, event);
-        } catch (final Throwable t) {
-            this.errorHandler.accept(t);
+    public void call(final int id, final AbstractEvent event) {
+        if (assertArraySize(id)) {
+            try {
+                callUnsafe(id, event);
+            } catch (final Throwable t) {
+                this.errorHandler.accept(t);
+            }
         }
     }
 
     /**
-     * This method is the internal method for event calling, it should never be called directly.
+     * Calls an event and handles the {@link BreakableException} by breaking the loop.
      *
      * @param id    The id of the event.
-     * @param event The event to post.
+     * @param event The event to call.
      */
-    public void postInternal(final int id, final AbstractEvent event) {
+    public void callBreakable(final int id, final AbstractEvent event) {
+        if (!assertArraySize(id)) {
+            return;
+        }
+
+        final Object[] subscriber = subscribers[id];
+        for (Object o : subscriber) {
+            try {
+                event.call(o);
+            } catch (final Throwable t) {
+                if (t instanceof BreakableException) {
+                    break;
+                }
+                this.errorHandler.accept(t);
+            }
+        }
+    }
+
+    /**
+     * Calls an event and passes any exceptions to the caller.
+     *
+     * @param id    The id of the event.
+     * @param event The event to call.
+     */
+    public void callExceptionally(final int id, final AbstractEvent event) {
+        if (assertArraySize(id)) {
+            callUnsafe(id, event);
+        }
+    }
+
+    /**
+     * Calls an event without taking care of error handling or capacity resizing. This method should not be used normally.
+     *
+     * @param id    The id of the event.
+     * @param event The event to call.
+     */
+    public void callUnsafe(final int id, final AbstractEvent event) {
         final Object[] subscriber = subscribers[id];
 
         for (int i = 0; i < subscriber.length; i++) {
             event.call(subscriber[i]);
         }
+    }
+
+    private boolean assertArraySize(final int id) {
+        if (subscribers.length <= id) {
+            setEventCapacity(id + 1);
+            return false;
+        }
+        return true;
+    }
+
+    @Deprecated
+    public void post(final int id, final AbstractEvent event) {
+        call(id, event);
+    }
+
+    @Deprecated
+    public void postInternal(final int id, final AbstractEvent event) {
+        callUnsafe(id, event);
     }
 
 }
