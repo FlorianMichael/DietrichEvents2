@@ -37,7 +37,7 @@ public class ExceptionTest {
 
     @Test
     void fireException() {
-        instance.callUnsafe(TestListener.TestEvent.ID, new TestListener.TestEvent(null));
+        instance.call(TestListener.TestEvent.ID, new TestListener.TestEvent(null));
         Assertions.assertTrue(message.contains("Custom message"));
     }
 
