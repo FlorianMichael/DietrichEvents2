@@ -288,8 +288,8 @@ public class DietrichEvents2 {
     public void callUnsafe(final int id, final AbstractEvent event) {
         final Object[] subscriber = subscribers[id];
 
-        for (int i = 0; i < subscriber.length; i++) {
-            event.call(subscriber[i]);
+        for (Object o : subscriber) {
+            event.call(o);
         }
     }
 
