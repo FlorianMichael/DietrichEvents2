@@ -1,28 +1,19 @@
 # DietrichEvents2
-
 One of the fastest Java event systems in the world using compiler optimizations, which still has a lot of features
 
 ## Contact
-
 If you encounter any issues, please report them on the
 [issue tracker](https://github.com/FlorianMichael/DietrichEvents2/issues).  
 If you just want to talk or need help with DietrichEvents2 feel free to join my
 [Discord](https://discord.gg/BwWhCHUKDf).
 
 ## How to add this to your project
-
 ### Gradle/Maven
-
-To use DietrichEvents2 with Gradle/Maven you can
-use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2), [Lenni0451's repository](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2)
-or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
+To use DietrichEvents2 with Gradle/Maven you can use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2), [Lenni0451's Maven](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2) or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
-
-If you just want the latest jar file you can download it from the
-GitHub [Actions](https://github.com/FlorianMichael/DietrichEvents2/actions) or use
-the [Release](https://github.com/FlorianMichael/DietrichEvents2/releases).
+If you just want the latest jar file you can download it from the GitHub [Actions](https://github.com/FlorianMichael/DietrichEvents2/actions) or use the [Release](https://github.com/FlorianMichael/DietrichEvents2/releases).
 
 ## Example usage
 
