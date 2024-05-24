@@ -16,14 +16,11 @@ You can also find instructions how to implement it into your build script there.
 If you just want the latest jar file you can download it from the GitHub [Actions](https://github.com/FlorianMichael/DietrichEvents2/actions) or use the [Release](https://github.com/FlorianMichael/DietrichEvents2/releases).
 
 ## Example usage
-
 ### Create instance
-
 You can use either **new DietrichEvents2(exception -> {});** or **DietrichEvents2.global()** to access an instance of
 the EventSystem,
 
 ### Create an Event
-
 ```java
 public interface ExampleListener {
 
@@ -50,7 +47,6 @@ public interface ExampleListener {
 ```
 
 ### Register Listener
-
 ```java
 public class Test implements ExampleListener {
 
@@ -67,7 +63,6 @@ public class Test implements ExampleListener {
 ```
 
 ### Calling an Event
-
 ````java
 // There are multiple call methods which can be used depending on the situation:
 
@@ -84,14 +79,12 @@ DietrichEvents2.global().call(ExampleEvent.ID, new ExampleEvent("Hello World!"))
 ````
 
 ## JMH Benchmark
-
 The Benchmark shows the average time it takes to call an event 100.000 times.
 All Benchmarks are run with the same code (see **src/jmh/java**), but different Java versions. If an event system does
 not appear in every list, it does not exist for the particular Java version, or would not work without modifying
 it. <br>
 
 ### Hardware specification:
-
 - CPU: Intel(R) Core(TM) i9-10900K CPU @ 3.70GHz
 - RAM: 48,0GB DDR4
 - GPU: NVIDIA GeForce RTX 3070 Ti
@@ -101,7 +94,6 @@ If you want to have another event system in the list, or want to have the source
 write me on Discord, look for it at "Contact" above. <br>
 
 ### Java 17
-
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
 | [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 310318,125   | 124933,800 | ns/op |
@@ -119,7 +111,6 @@ write me on Discord, look for it at "Contact" above. <br>
 | [Guava](https://github.com/google/guava)                                                                                | avgt | 4   | 15337145,465 | 247949,530 | ns/op |
 
 ### Java 11
-
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
 | [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 415349,165   | 7314,048   | ns/op |
@@ -138,7 +129,6 @@ write me on Discord, look for it at "Contact" above. <br>
 | [Guava](https://github.com/google/guava)                                                                                | avgt | 4   | 11656575,419 | 533926,166 | ns/op |
 
 ### Java 8
-
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
 | [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 635392,941   | 25647,033  | ns/op |

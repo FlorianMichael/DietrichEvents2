@@ -83,7 +83,7 @@ public class DietrichEvents2 {
 
     /**
      * @param id The id of the event.
-     * @return The subscribers of the event, if there are no subscribers null will be returned.
+     * @return The subscribers of the event, if there are no subscribers null, will be returned.
      */
     public Object[] getSubscribers(final int id) {
         if (!hasSubscriber(id)) {
