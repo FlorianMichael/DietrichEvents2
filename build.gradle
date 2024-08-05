@@ -6,9 +6,10 @@ plugins {
 }
 
 base {
+    group = project.maven_group
     archivesName = project.maven_name
     version = project.maven_version
-    group = project.maven_group
+    description = project.maven_description
 }
 
 repositories {
@@ -86,7 +87,7 @@ publishing {
 
             pom {
                 name = artifactId
-                description = "One of the fastest Java event systems in the world, which still has a lot of features"
+                description = project.description
                 url = "https://github.com/FlorianMichael/DietrichEvents2"
                 licenses {
                     license {
