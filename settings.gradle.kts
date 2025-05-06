@@ -3,6 +3,10 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    plugins {
+        id("de.florianmichael.baseproject.BaseProject") version "0.0.3"
+    }
 }
 
 plugins {
