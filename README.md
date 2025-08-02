@@ -5,7 +5,7 @@ One of the fastest Java event systems in the world using compiler optimizations,
 If you encounter any issues, please report them on the
 [issue tracker](https://github.com/FlorianMichael/DietrichEvents2/issues).  
 If you just want to talk or need help with DietrichEvents2 feel free to join my
-[Discord](https://discord.gg/BwWhCHUKDf).
+[Discord](https://florianmichael.de/discord).
 
 ## How to add this to your project
 ### Gradle/Maven
