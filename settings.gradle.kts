@@ -5,7 +5,7 @@ pluginManagement {
     }
 
     plugins {
-        id("de.florianmichael.baseproject.BaseProject") version "1.2.0"
+        id("de.florianmichael.baseproject.BaseProject") version "1.2.1"
     }
 }
 
