@@ -22,7 +22,7 @@ package de.florianmichael.dietrichevents2;
  *
  * @param <T> The type of the listener.
  */
-public abstract class CancellableEvent<T> extends AbstractEvent<T> {
+public abstract class CancellableEvent<T> implements AbstractEvent<T> {
 
     /**
      * Whether the event is cancelled.

@@ -23,7 +23,7 @@ public interface BenchmarkListener {
 
     void onBenchmark(final Blackhole blackhole);
 
-    class BenchmarkEvent extends AbstractEvent<BenchmarkListener> {
+    class BenchmarkEvent implements AbstractEvent<BenchmarkListener> {
 
         public static final int ID = 0;
 
