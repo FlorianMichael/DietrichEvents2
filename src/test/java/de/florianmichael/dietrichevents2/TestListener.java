@@ -21,7 +21,7 @@ public interface TestListener {
 
     void onTest(final TestEvent event);
 
-    class TestEvent extends AbstractEvent<TestListener> {
+    class TestEvent implements AbstractEvent<TestListener> {
 
         public static final int ID = 0;
 

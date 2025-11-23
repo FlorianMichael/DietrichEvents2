@@ -22,13 +22,13 @@ package de.florianmichael.dietrichevents2;
  *
  * @param <T> The type of the listener.
  */
-public abstract class AbstractEvent<T> {
+public interface AbstractEvent<T> {
 
     /**
      * Calls the listener.
      *
      * @param listener The listener to call.
      */
-    public abstract void call(final T listener);
+    void call(final T listener);
 
 }
