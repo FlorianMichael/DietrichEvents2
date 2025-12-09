@@ -9,11 +9,17 @@ If you just want to talk or need help with DietrichEvents2 feel free to join my
 
 ## How to add this to your project
 ### Gradle/Maven
-To use DietrichEvents2 with Gradle/Maven you can use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2), [Lenni0451's Maven](https://maven.lenni0451.net/#/releases/de/florianmichael/DietrichEvents2) or [Jitpack](https://jitpack.io/#FlorianMichael/DietrichEvents2).  
+
+To use DietrichEvents2 with Gradle/Maven you can
+use [the Maven Central repository](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2)
+or [my own repository](https://maven.florianmichael.de/#/releases/de/florianmichael/DietrichEvents2).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
-If you just want the latest jar file you can download it from the GitHub [Actions](https://github.com/FlorianMichael/DietrichEvents2/actions) or use the [Release](https://github.com/FlorianMichael/DietrichEvents2/releases).
+
+If you just want the latest jar file you can download it
+from [my build server](https://build.florianmichael.de/job/DietrichEvents2), [GitHub Actions](https://github.com/FlorianMichael/DietrichEvents2/actions)
+or use the [releases tab](https://github.com/FlorianMichael/DietrichEvents2/releases).
 
 ## Example usage
 ### Create instance
