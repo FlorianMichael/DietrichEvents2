@@ -1,6 +1,6 @@
 /*
  * This file is part of DietrichEvents2 - https://github.com/FlorianMichael/DietrichEvents2
- * Copyright (C) 2023-2025 FlorianMichael/EnZaXD <florian.michael07@gmail.com> and contributors
+ * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
