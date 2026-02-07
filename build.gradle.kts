@@ -1,19 +1,15 @@
-import de.florianmichael.baseproject.*
+import de.florianreuth.baseproject.*
 
 plugins {
     `java-library`
     id("me.champeau.jmh") version "0.7.3"
-    id("de.florianmichael.baseproject.BaseProject")
+    id("de.florianreuth.baseproject")
 }
 
 setupProject()
 setupPublishing()
 
 configureTestTasks()
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.14.1"))

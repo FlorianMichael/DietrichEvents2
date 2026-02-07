@@ -3,23 +3,23 @@ One of the fastest Java event systems in the world using compiler optimizations,
 
 ## Contact
 If you encounter any issues, please report them on the
-[issue tracker](https://github.com/FlorianMichael/DietrichEvents2/issues).  
+[issue tracker](https://github.com/florianreuth/DietrichEvents2/issues).  
 If you just want to talk or need help with DietrichEvents2 feel free to join my
-[Discord](https://florianmichael.de/discord).
+[Discord](https://florianreuth.de/discord).
 
 ## How to add this to your project
 ### Gradle/Maven
 
 To use DietrichEvents2 with Gradle/Maven you can
-use [the Maven Central repository](https://mvnrepository.com/artifact/de.florianmichael/DietrichEvents2)
-or [my own repository](https://maven.florianmichael.de/#/releases/de/florianmichael/DietrichEvents2).  
+use [the Maven Central repository](https://mvnrepository.com/artifact/de.florianreuth/dietrichevents2)
+or [my own repository](https://maven.florianreuth.de/#/releases/de/florianreuth/dietrichevents2).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
 
 If you just want the latest jar file you can download it
-from [my build server](https://build.florianmichael.de/job/DietrichEvents2), [GitHub Actions](https://github.com/FlorianMichael/DietrichEvents2/actions)
-or use the [releases tab](https://github.com/FlorianMichael/DietrichEvents2/releases).
+from [my build server](https://build.florianreuth.de/job/DietrichEvents2), [GitHub Actions](https://github.com/florianreuth/DietrichEvents2/actions)
+or use the [releases tab](https://github.com/florianreuth/DietrichEvents2/releases).
 
 ## Example usage
 ### Create instance
@@ -102,11 +102,11 @@ write me on Discord, look for it at "Contact" above. <br>
 ### Java 17
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
-| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 310318,125   | 124933,800 | ns/op |
+| [DietrichEvents2](https://github.com/florianreuth/DietrichEvents2)                                                    | avgt | 4   | 310318,125   | 124933,800 | ns/op |
 | [ASMEvents](https://github.com/Lenni0451/ASMEvents)                                                                     | avgt | 4   | 546376,840   | 18561,729  | ns/op |
 | [ChimeraEventBus](https://github.com/FelixH2012/ChimeraEventBus)                                                        | avgt | 4   | 581672,678   | 71045,952  | ns/op |
 | [norbit](https://github.com/CrosbyDev/norbit)                                                                           | avgt | 4   | 604412,122   | 28715,740  | ns/op |
-| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)                                                      | avgt | 4   | 627457,818   | 12842,704  | ns/op |
+| [DietrichEvents](https://github.com/florianreuth/DietrichEvents)                                                      | avgt | 4   | 627457,818   | 12842,704  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)                                                 | avgt | 4   | 769492,673   | 18975,650  | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)                                               | avgt | 4   | 1020463,350  | 70117,174  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory)                                           | avgt | 4   | 1134071,045  | 41718,145  | ns/op |
@@ -119,10 +119,10 @@ write me on Discord, look for it at "Contact" above. <br>
 ### Java 11
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
-| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 415349,165   | 7314,048   | ns/op |
+| [DietrichEvents2](https://github.com/florianreuth/DietrichEvents2)                                                    | avgt | 4   | 415349,165   | 7314,048   | ns/op |
 | [ASMEvents](https://github.com/Lenni0451/ASMEvents)                                                                     | avgt | 4   | 663676,846   | 16997,570  | ns/op |
 | [ChimeraEventBus](https://github.com/FelixH2012/ChimeraEventBus)                                                        | avgt | 4   | 710557,890   | 72090,826  | ns/op |
-| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)                                                      | avgt | 4   | 743307,467   | 18786,064  | ns/op |
+| [DietrichEvents](https://github.com/florianreuth/DietrichEvents)                                                      | avgt | 4   | 743307,467   | 18786,064  | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)                                               | avgt | 4   | 753029,999   | 16373,710  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)                                                 | avgt | 4   | 770001,532   | 24463,218  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)                                                     | avgt | 4   | 771670,427   | 13801,284  | ns/op |
@@ -137,13 +137,13 @@ write me on Discord, look for it at "Contact" above. <br>
 ### Java 8
 | Benchmark                                                                                                               | Mode | Cnt | Score        | Error      | Units |
 |-------------------------------------------------------------------------------------------------------------------------|------|-----|--------------|------------|-------|
-| [DietrichEvents2](https://github.com/FlorianMichael/DietrichEvents2)                                                    | avgt | 4   | 635392,941   | 25647,033  | ns/op |
+| [DietrichEvents2](https://github.com/florianreuth/DietrichEvents2)                                                    | avgt | 4   | 635392,941   | 25647,033  | ns/op |
 | [ASMEvents](https://github.com/Lenni0451/ASMEvents)                                                                     | avgt | 4   | 813149,931   | 31763,759  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (LambdaMetaFactory)                                           | avgt | 4   | 1129216,906  | 16383,663  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (MinimalEventManager)                                                 | avgt | 4   | 1327251,543  | 55359,321  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (ASMEventManager)                                                     | avgt | 4   | 1399196,527  | 55170,229  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Method Handles)                                              | avgt | 4   | 1495215,777  | 6336,098   | ns/op |
-| [DietrichEvents](https://github.com/FlorianMichael/DietrichEvents)                                                      | avgt | 4   | 1497398,449  | 128637,113 | ns/op |
+| [DietrichEvents](https://github.com/florianreuth/DietrichEvents)                                                      | avgt | 4   | 1497398,449  | 128637,113 | ns/op |
 | [DarkMagician6](https://bitbucket.org/DarkMagician6/eventapi/src/master/)                                               | avgt | 4   | 1870394,664  | 59848,353  | ns/op |
 | [LambdaEvents](https://github.com/Lenni0451/LambdaEvents) (Reflection)                                                  | avgt | 4   | 2169950,957  | 50804,811  | ns/op |
 | [EventAPI](https://github.com/Lenni0451/EventAPI) (InjectionEventManager)                                               | avgt | 4   | 3832627,003  | 73982,528  | ns/op |

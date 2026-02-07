@@ -1,6 +1,6 @@
 /*
- * This file is part of DietrichEvents2 - https://github.com/FlorianMichael/DietrichEvents2
- * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
+ * This file is part of DietrichEvents2 - https://github.com/florianreuth/DietrichEvents2
+ * Copyright (C) 2023-2026 Florian Reuth <git@florianreuth.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,27 +15,21 @@
  * limitations under the License.
  */
 
-package de.florianmichael.dietrichevents2;
+package de.florianreuth.dietrichevents2;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class UnsubscribeAllTest {
-
-    private static final TestListener event = event -> System.out.println("TestEvent: " + event.something);
-
-    @BeforeAll
-    static void setUp() {
-        DietrichEvents2.global().subscribe(TestListener.TestEvent.ID, event);
-    }
+public class CancellableEventTest {
 
     @Test
-    void unsubscribeAll() {
+    void fire() {
         final DietrichEvents2 d = DietrichEvents2.global();
+        d.subscribe(CancellableTestListener.CancellableTestEvent.ID, (CancellableTestListener) CancellableEvent::cancel);
 
-        d.unsubscribeAll(TestListener.TestEvent.ID);
-        Assertions.assertFalse(d.hasSubscriber(TestListener.TestEvent.ID));
+        CancellableTestListener.CancellableTestEvent event = new CancellableTestListener.CancellableTestEvent();
+        d.callUnsafe(CancellableTestListener.CancellableTestEvent.ID, event);
+        Assertions.assertTrue(event.isCancelled());
     }
 
 }

@@ -1,6 +1,6 @@
 /*
- * This file is part of DietrichEvents2 - https://github.com/FlorianMichael/DietrichEvents2
- * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
+ * This file is part of DietrichEvents2 - https://github.com/florianreuth/DietrichEvents2
+ * Copyright (C) 2023-2026 Florian Reuth <git@florianreuth.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,25 +15,27 @@
  * limitations under the License.
  */
 
-package de.florianmichael.dietrichevents2;
+package de.florianreuth.dietrichevents2;
 
-public interface TestListener {
+import org.openjdk.jmh.infra.Blackhole;
 
-    void onTest(final TestEvent event);
+public interface BenchmarkListener {
 
-    class TestEvent implements AbstractEvent<TestListener> {
+    void onBenchmark(final Blackhole blackhole);
+
+    class BenchmarkEvent implements AbstractEvent<BenchmarkListener> {
 
         public static final int ID = 0;
 
-        public final Object something;
+        private final Blackhole blackhole;
 
-        public TestEvent(Object something) {
-            this.something = something;
+        public BenchmarkEvent(final Blackhole blackhole) {
+            this.blackhole = blackhole;
         }
 
         @Override
-        public void call(TestListener listener) {
-            listener.onTest(this);
+        public void call(BenchmarkListener listener) {
+            listener.onBenchmark(this.blackhole);
         }
 
     }

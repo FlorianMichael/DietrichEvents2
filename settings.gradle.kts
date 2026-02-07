@@ -2,10 +2,11 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.florianreuth.de/releases")
     }
 
     plugins {
-        id("de.florianmichael.baseproject.BaseProject") version "1.4.1"
+        id("de.florianreuth.baseproject") version "2.0.0"
     }
 }
 
@@ -13,4 +14,4 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-rootProject.name = "DietrichEvents2"
+rootProject.name = "dietrichevents2"

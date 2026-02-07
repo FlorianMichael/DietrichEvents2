@@ -1,6 +1,6 @@
 /*
- * This file is part of DietrichEvents2 - https://github.com/FlorianMichael/DietrichEvents2
- * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
+ * This file is part of DietrichEvents2 - https://github.com/florianreuth/DietrichEvents2
+ * Copyright (C) 2023-2026 Florian Reuth <git@florianreuth.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,21 +15,17 @@
  * limitations under the License.
  */
 
-package de.florianmichael.dietrichevents2;
+package de.florianreuth.dietrichevents2;
 
-public interface BreakableTestListener {
+/**
+ * This class is optional and does not have to be used
+ */
+public enum StateTypes {
 
-    void onTest(final BreakableTestEvent event);
-
-    class BreakableTestEvent extends BreakableEvent<BreakableTestListener> {
-
-        public static final int ID = 1;
-
-        @Override
-        public void call0(BreakableTestListener listener) {
-            listener.onTest(this);
-        }
-
-    }
+    FIRST,
+    PRE,
+    INTRA,
+    POST,
+    LAST
 
 }

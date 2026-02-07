@@ -1,6 +1,6 @@
 /*
- * This file is part of DietrichEvents2 - https://github.com/FlorianMichael/DietrichEvents2
- * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
+ * This file is part of DietrichEvents2 - https://github.com/florianreuth/DietrichEvents2
+ * Copyright (C) 2023-2026 Florian Reuth <git@florianreuth.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,11 +15,20 @@
  * limitations under the License.
  */
 
-package de.florianmichael.dietrichevents2;
+package de.florianreuth.dietrichevents2;
 
 /**
- * Alternative to {@link BreakableEvent} which supports dynamic events and can be used in any context. Requires the
- * usage of {@link DietrichEvents2#callBreakable(int, AbstractEvent)} to call the event.
+ * This class represents an event.
+ *
+ * @param <T> The type of the listener.
  */
-public class BreakableException extends RuntimeException {
+public interface AbstractEvent<T> {
+
+    /**
+     * Calls the listener.
+     *
+     * @param listener The listener to call.
+     */
+    void call(final T listener);
+
 }
